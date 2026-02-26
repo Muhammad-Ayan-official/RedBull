@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Bull - Sign In | Gives You Wings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1629203851122-3726ec12cb81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+        
+        .auth-card {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            background: var(--black-lighter);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--red);
+            box-shadow: 0 0 30px rgba(227,6,19,0.2);
+        }
+        
+        .auth-left {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .auth-right {
+            flex: 1;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--white);
+        }
+        
+        .auth-logo-text h1 {
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+        
+        .auth-logo-text p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .auth-header {
+            margin-bottom: 2rem;
+        }
+        
+        .auth-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .auth-header p {
+            color: var(--gray);
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-form .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .auth-form .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid var(--black-light);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-form .form-control:focus {
+            outline: none;
+            border-color: var(--red);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .auth-form .btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .auth-footer a {
+            color: var(--red);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            background: rgba(227,6,19,0.1);
+            border: 2px solid rgba(227,6,19,0.3);
+            color: var(--red);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .auth-illustration {
+            width: 180px;
+            height: 180px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border: 4px solid var(--white);
+        }
+        
+        .auth-illustration i {
+            font-size: 5rem;
+            color: var(--white);
+        }
+        
+        .auth-right h3 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .auth-right p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="logo-text">
+                RED<span>BULL</span>
+            </div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="../home/">Home</a>
+            <a href="../about/">About</a>
+            <a href="../contact/">Contact</a>
+            <div class="nav-buttons">
+                <a href="../login/" class="btn-nav btn-login active">Login</a>
+                <a href="../signup/" class="btn-nav btn-signup">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-left">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="auth-logo-text">
+                        <h1>RED<span class="text-red">BULL</span></h1>
+                        <p>Gives You Wings</p>
+                    </div>
+                </div>
+                
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to continue your energy journey</p>
+                </div>
+                
+                <!-- Demo error message (hidden by default) -->
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="errorText">Invalid email or password</span>
+                </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" 
+                               placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" 
+                               placeholder="Enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+                
+                <div class="auth-footer">
+                    Don't have an account? <a href="../signup/">Sign up now</a>
+                </div>
+            </div>
+            
+            <div class="auth-right">
+                <div class="auth-illustration">
+                    <i class="fas fa-wing"></i>
+                </div>
+                <h3>Ready to Fly?</h3>
+                <p>Sign in to access exclusive content, events, and energy-boosting experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Red Bull</h3>
+                <p>Red Bull is more than an energy drink. It's a lifestyle that gives wings to people who want to push their limits.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../home/">Home</a></li>
+                    <li><a href="../about/">About Us</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../login/">Login</a></li>
+                    <li><a href="../signup/">Sign Up</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Red Bull. All rights reserved. Red Bull gives you wings.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            
+            // Simple validation for demo
+            if (email && password) {
+                // Demo successful login
+                alert('Login successful! Welcome back to Red Bull.');
+                window.location.href = '../home/';
+            } else {
+                // Show error
+                errorMessage.style.display = 'flex';
+                errorText.textContent = 'Please enter both email and password';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
